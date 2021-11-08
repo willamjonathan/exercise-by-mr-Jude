@@ -2,7 +2,6 @@ import os
 os.getcwd()
 mybook=open("fifo.txt","r")
 myAll = mybook.read()
-print(myAll)
 #funtion
 Str=(myAll)
 def countword(Str):
