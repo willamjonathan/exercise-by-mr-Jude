@@ -1,9 +1,9 @@
 #number2
 import os
 os.getcwd()
-f = open("fifo.txt",mode='r',encoding='utf-8')
-x = open("newtext.txt",mode="x",encoding = "utf-8")
-s = f.read().split('\n')
+k = open("fifo.txt",mode='r',encoding='utf-8')
+b = open("newtext.txt",mode="x",encoding = "utf-8")
+s = k.read().split('\n')
 counter=1
 for s in s :
     x.write(str(counter)+' '+s+'\n')
