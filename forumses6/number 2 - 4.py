@@ -25,7 +25,7 @@ print("The average word is :",r,"word")
 #number4
 import os
 os.getcwd()
-stc=("out.txt")
+stc=("mrmiyagi.txt")
 ss=open(os.getcwd()+'\\'+stc,'r',encoding="utf-8")
 sss=ss.read().split()
 z = ["Mr.","Jr.","Mrs.","Ms.","Dr."]
@@ -33,10 +33,10 @@ n=''
 for i in sss:
     if "!" not in i and "?" not in i:
         n+=(i + " ")
+        if "." in i[-1] and i not in z:
+            n+="\n"
         if "." in i.strip(".") and i not in z:
             pass
-        elif "." in i[-1] and i not in z:
-            n+="\n"
     else:
         n+=(i+"\n")
 
