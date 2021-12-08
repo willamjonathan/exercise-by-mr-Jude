@@ -6,7 +6,7 @@ class SL_WJM:
         self.pounds = pounds
         self.price = 0
         self.total = 0
-        
+ #setter function        
     def __PriceListWJM(self):
         if self.food.lower()=="dry cured iberian ham":
             self.set_price(177.8)
@@ -26,7 +26,7 @@ class SL_WJM:
             self.set_price(270.81)
         else:
             self.set_price(0)
-            
+    #getter function to call price        
     def get_priceWJM(self):
         return self.price
     
