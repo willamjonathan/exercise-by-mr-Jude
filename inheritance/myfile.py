@@ -19,22 +19,26 @@ p1 = Person("Will","Sukajadi")
 print(p1.__str__())
 
 class Student(Person):
-    def __init__(self, name, address,grade,numCourses,courses):
+    def __init__(self, name, address,numCourses):
         super().__init__(name, address)
-        self.grade = 0.0
-        self.setCourses(courses)
-        self.setNumCourses(numCourses)
-        
-    def setgrade(self,grade):
-        if grade >60 :
-            self.grade = grade
-            return grade
-        else:
-            self.grade = "void"
-
+        self.grade = []
+        self.numCourses = numCourses
+        self.courses = []
+    def AddCourse (self,courses):
+        self.courses.append(courses)
+    def AddGrade(self,grade):
+        self.grade.append(grade)
+    def getCourse(self):
+        return self.courses
+    def getGrade(self):
+        return self.grade
+    def getNumCourses(self):
+        return self.numCourses
+    #def get average?
     def __str__(self):
         return " Student: {}({}) Grade : {}".format(super().getName(),super().getAddress(),self.grade())
-    
+
+
 class Teacher(Person):
     def __init__(self,name,address,numCourses,courses):
         super().__init__(name, address)
