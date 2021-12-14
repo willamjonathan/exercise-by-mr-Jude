@@ -19,28 +19,60 @@ p1 = Person("Will","Sukajadi")
 print(p1.__str__())
 
 class Student(Person):
-    def __init__(self, name, address,numCourses):
+    def __init__(self, name, address):
         super().__init__(name, address)
-        self.grade = []
-        self.numCourses = numCourses
+        self.grades = []
+        self.numCourses = 0
         self.courses = []
-    def AddCourse (self,courses):
+
+    def __str__(self):
+        return "Name: {}\nAdress:{}\nNumber of courses: {}\nCourses : {}\nGrades :{} ".format(self.name(),self.getAddress(),self.numCourses(),self.courses(),self.grades())
+    def AddCourseGrade (self,courses):
         self.courses.append(courses)
-    def AddGrade(self,grade):
-        self.grade.append(grade)
-    def getCourse(self):
-        return self.courses
-    def getGrade(self):
-        return self.grade
-    def getNumCourses(self):
-        return self.numCourses
-    #def get average?
+        self.grades.append(grade)
+        self.numCourses += 1
+
+    def printGrades(self):
+        for i in range(self.numCourses):
+            print(f"{self.courses[i]}:{self.grades[i]}\n")
+
+    def getAverageGrades(self):
+        total = 0 
+        for grade in self.grades:
+            total += grade
+        return total/self.numCourses
+    
     def __str__(self):
         return " Student: {}({}) Grade : {}".format(super().getName(),super().getAddress(),self.grade())
 
 
 class Teacher(Person):
-    def __init__(self,name,address,numCourses,courses):
+    def __init__(self,name,address):
         super().__init__(name, address)
-        self.setNumCourses(numCourses)
-        self.setCourses(courses)
+        self.numCourses = 0
+        self.courses = []
+
+    def addCourses(self,course):
+        if course in self.courses:
+            print("course already exists")
+            return False
+        else:
+            self.course.append(course)
+            self.numCourses +=1
+            return True
+    def removeCourses(self,course):
+        if course not in self.courses:
+            print("course doesn't already exist")
+            return False
+        else:
+            self.course.remove(course)
+            self.numCourses -=1
+            return True
+
+    def __str__(self):
+        return f"Name:{self.name}\nAdress: {self.address}\n Number of courses : {self.numCourses}\nCourses : {self.courses}"
+    
+        
+            
+        
+    
