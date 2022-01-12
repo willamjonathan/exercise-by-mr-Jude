@@ -6,30 +6,30 @@ import random as rand
 df=pd.read_csv('activity.csv')
 print(df.info())
 
-def get_number_of_Nans(df):
+def numbnans(df):
     return df.isnull().sum()
 
-print('NUMBER OF NANS:')
-print(get_number_of_Nans(df))
+print('number of nans:')
+print(numbnans(df))
 
-def fill_in_Nans_with_random_values_and_create_new_dataset():
+def newdataset():
     new_dataset =df.copy()
     new_dataset.fillna(rand.randint(0,100), inplace=True)
     return new_dataset
 
 print('\n new_dataset \n')
-new_dataset=fill_in_Nans_with_random_values_and_create_new_dataset()
+new_dataset=newdataset()
 # df.dropna(inplace=True)
 
-def get_steps_per_day(df):
+def steps(df):
     steps_per_day = df.groupby('date').sum()['steps']
     return steps_per_day.to_frame()
 
 print('steps_per_day')
-print(get_steps_per_day(df))
+print(steps(df))
 
 def histogram_of_total_steps_per_day(df):
-    steps_per_day = get_steps_per_day(df)
+    steps_per_day = steps(df)
     plt.hist(steps_per_day)
     plt.xlabel('Total Steps')
     plt.ylabel('Days')
@@ -63,7 +63,7 @@ plot_mean_of_total_steps_per_day()
 
 print('DAY THAT HAS MOST STEPS:')
 def get_date_that_have_max_steps_per_5_minute_interval():
-    steps_per_day = get_steps_per_day(df)
+    steps_per_day = steps(df)
     return steps_per_day.idxmax()
 
 print(get_date_that_have_max_steps_per_5_minute_interval())
